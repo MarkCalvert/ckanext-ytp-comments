@@ -126,9 +126,9 @@ commands:
       ahoy start-mailmock &
       sleep 5 &&
       ahoy cli "behave ${*:-/app/test/features}" || \
-      [ "${ALLOW_BDD_FAIL:-0}" -eq 1 ]
-      ahoy stop-mailmock
+      [ "${ALLOW_BDD_FAIL:-0}" -eq 1 ] &&
       ahoy stop-ckan-job-worker
+      ahoy stop-mailmock
 
   start-mailmock:
     usage: Starts email mock server used for email BDD tests
